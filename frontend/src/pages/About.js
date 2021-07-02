@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import {Row , Col , Image} from 'react-bootstrap';
 
 function About(props) {
     return (
@@ -12,6 +12,23 @@ function About(props) {
                     To develop the backend, I've used Express and Mongodb in NodeJS.
                 </p>
                 <p><a target="_blank" href="https://github.com/pedroamas/todo_list_react_node">Source code in GitHub</a></p>
+                <Row className="centered">
+                    <Col xs={6} md={6} >
+                        <Image className="image" src="images/mongo.png" fluid />
+                    </Col>
+                    
+                    <Col xs={6} md={6}>
+                        <Image className="image" src="images/node.png" fluid />
+                    </Col>
+                </Row>
+                <Row className="centered">
+                    <Col xs={6} md={6}>
+                        <Image className="image" src="images/bootstrap.png" fluid />
+                    </Col>
+                    <Col xs={6} md={6}>
+                        <Image className="image"  src="images/react.jpg" fluid />
+                    </Col>
+                </Row>
             </div>
 
         </div>

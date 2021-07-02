@@ -30,5 +30,11 @@
 .push {
     height: 60px
 }
+.image {
+    max-height: 200px;
+}
+.centered {
+    text-align: center;
+}
   
     

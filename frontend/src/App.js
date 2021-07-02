@@ -12,8 +12,8 @@ function App(props) {
      <Router>
           <Header />
           <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
           </Switch>
           <div className="push"></div>
         <Footer/>
