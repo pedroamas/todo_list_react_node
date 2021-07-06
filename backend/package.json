@@ -13,13 +13,14 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongoose": "^5.12.15"
-  },
-  "devDependencies": {
+    "mongoose": "^5.12.15",
     "@babel/cli": "^7.14.5",
     "@babel/core": "^7.14.6",
     "@babel/node": "^7.14.7",
-    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-env": "^7.14.7"
+  },
+  "devDependencies": {
+    
     "nodemon": "^2.0.7"
   }
 }
