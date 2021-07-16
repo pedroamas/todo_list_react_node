@@ -27,9 +27,9 @@ function FormPanel(props) {
   return (
     <Accordion defaultActiveKey="0">
     <Card>
-    <Accordion.Toggle as={Card.Header} eventKey="0">
-      <h6 className="float-left">What needs to be done?</h6>
-      <ArrowDropDownIcon className="float-right"/>
+    <Accordion.Toggle as={Card.Header} eventKey="0" className="centered">
+      <h6 className="">What needs to be done? <ArrowDropDownIcon /></h6>
+      
       </Accordion.Toggle>
       <Accordion.Collapse eventKey="0">
       <Card.Body>

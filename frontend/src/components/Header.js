@@ -19,6 +19,8 @@ function Header(props)  {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/chess">Chess</Nav.Link>
+              <Nav.Link href="/streaming">Streaming</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               
             </Nav>
