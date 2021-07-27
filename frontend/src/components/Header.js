@@ -18,7 +18,7 @@ function Header(props)  {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/">To-do list</Nav.Link>
               <Nav.Link href="/chess">Chess</Nav.Link>
               <Nav.Link href="/streaming">Streaming</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>

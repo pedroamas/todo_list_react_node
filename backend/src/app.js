@@ -1,6 +1,7 @@
 import express from 'express';
 import pkg from '../package.json'
 import todoRouter from './routes/todo.routes'
+import videosRouter from './routes/videos.routes'
 import cors from 'cors';
 
 
@@ -9,6 +10,7 @@ app.set('pkg' , pkg);
 app.use(express.json());
 app.use(cors());
 app.use('/api/todo' , todoRouter);
+app.use('/api/videos' , videosRouter);
 
 app.get('/' , (req , res) => {
     res.json({

@@ -64,7 +64,7 @@ function  Home(props) {
   return (
     <div className="container  separe-margin">
         <div className="separe-margin">
-            <h2 >Todo list</h2>
+            <h2 >To-do list</h2>
         </div>
         <div className="separe-margin">
             <FormPanel addTask={addTask} />

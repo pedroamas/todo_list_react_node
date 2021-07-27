@@ -1,7 +1,7 @@
 import axios from 'axios';
 import env from "react-dotenv";
 
-const URL = env.API_URL;
+const URL = env.API_URL + '/todo';
 
 export function getTasks() {
     return axios.get(URL)
