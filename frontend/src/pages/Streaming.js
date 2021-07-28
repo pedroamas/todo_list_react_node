@@ -19,7 +19,9 @@ function Streaming(props) {
     } , []);
 
     return (
-      <div className="container">
+      <div className="container  separe-margin">
+        <div className="separe-margin">
+          <h2 className="separe-margin">Videos Streaming</h2>
           <div className="row">
             {videos.map(video =>
               <div className="col-md-4" key={video.id}>
@@ -36,6 +38,7 @@ function Streaming(props) {
               )} 
           </div>
         </div>
+      </div>
       );
 }
 
