@@ -21,6 +21,7 @@ function Header(props)  {
               <Nav.Link href="/">To-do list</Nav.Link>
               <Nav.Link href="/chess">Chess</Nav.Link>
               <Nav.Link href="/streaming">Streaming</Nav.Link>
+              <Nav.Link href="/minesweeper">Minesweeper</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               
             </Nav>

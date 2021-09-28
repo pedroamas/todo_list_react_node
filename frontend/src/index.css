@@ -47,3 +47,35 @@ video {
     width: 100%;
     height: 50vh;
 }
+
+.box {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-style: solid;
+    border-color: grey;
+}
+
+.hiddenBox {
+    background-color: burlywood;
+    color: burlywood;
+    border-style: solid;
+    border-color: grey;
+}
+
+.flag {
+    background-image: url("https://cdn-icons-png.flaticon.com/512/825/825205.png") ;
+    background-size: 30px 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: navajowhite;
+}
+
+.bomb {
+    background-image: url("https://cdn-icons-png.flaticon.com/512/978/978674.png") ;
+    background-size: 30px 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: red;
+    color: red;
+}
