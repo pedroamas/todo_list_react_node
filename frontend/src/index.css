@@ -49,33 +49,55 @@ video {
 }
 
 .box {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     text-align: center;
     border-style: solid;
     border-color: grey;
+    -moz-user-select: none; 
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
+.box:hover {
+    cursor: context-menu;
 }
 
 .hiddenBox {
     background-color: burlywood;
-    color: burlywood;
+    color: transparent;
     border-style: solid;
     border-color: grey;
+    
 }
 
 .flag {
     background-image: url("https://cdn-icons-png.flaticon.com/512/825/825205.png") ;
-    background-size: 30px 30px;
+    background-size: 25px 25px;
     background-position: center;
     background-repeat: no-repeat;
     background-color: navajowhite;
+    color: transparent;
 }
 
 .bomb {
     background-image: url("https://cdn-icons-png.flaticon.com/512/978/978674.png") ;
-    background-size: 30px 30px;
+    background-size: 25px 25px;
     background-position: center;
     background-repeat: no-repeat;
     background-color: red;
-    color: red;
+    color: transparent;
+}
+
+.mistake {
+    background-image: url("https://cdn-icons-png.flaticon.com/512/1828/1828665.png") ;
+    background-size: 25px 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
+    color: transparent;
+}
+.background-green {
+    background-color: #28a745;
+    color: white;
 }
