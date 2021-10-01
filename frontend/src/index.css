@@ -80,6 +80,16 @@ video {
     color: transparent;
 }
 
+.question {
+    background-image: url("https://cdn-icons-png.flaticon.com/512/25/25333.png") ;
+    background-size: 25px 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #FFFF99;
+    color: transparent;
+}
+
+
 .bomb {
     background-image: url("https://cdn-icons-png.flaticon.com/512/978/978674.png") ;
     background-size: 25px 25px;

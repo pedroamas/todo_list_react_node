@@ -83,12 +83,22 @@ function MinesweeperGame(props) {
     if ($("#"+i+"-"+j).hasClass("hiddenBox")){
       if ($("#"+i+"-"+j).hasClass("flag")){
         $("#"+i+"-"+j).removeClass("flag");
+        $("#"+i+"-"+j).addClass("question");
         reminingMines++;
       }else{
-        $("#"+i+"-"+j).addClass("flag");
-        reminingMines--;
+        if ($("#"+i+"-"+j).hasClass("question")){
+          $("#"+i+"-"+j).removeClass("question");
+        } else {
+          $("#"+i+"-"+j).addClass("flag");
+          reminingMines--;
+        }
       }
       $("#reminingMines").text("Mines: " + reminingMines);
+    } else {
+      if ($("#"+i+"-"+j).hasClass("question")){
+        $("#"+i+"-"+j).removeClass("question");
+        alert("Entrs")
+      } 
     }
   }
 
@@ -133,7 +143,7 @@ function MinesweeperGame(props) {
     for (let i=0 ; i<height ; i++){
       for (let j=0 ; j<width ; j++){
         $("#"+i+"-"+j).addClass("hiddenBox");
-        $("#"+i+"-"+j).removeClass("flag bomb mistake");
+        $("#"+i+"-"+j).removeClass("flag bomb mistake question");
       }
     }
   }
@@ -156,7 +166,7 @@ function MinesweeperGame(props) {
           return;
         }
         $("#"+i+"-"+j).text(minesweeper[i][j]);
-        $("#"+i+"-"+j).removeClass("hiddenBox");
+        $("#"+i+"-"+j).removeClass("hiddenBox question");
         if(minesweeper[i][j] == "") {
           if(0<=i-1) selectedBox(i-1 , j);
           if(0<=i-1 && 0<=j-1) selectedBox(i-1 , j-1);
