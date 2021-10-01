@@ -7,7 +7,8 @@ var isNew;
 var reminingBoxs;
 var finished;
 const dificulty = {easy: {height:8,width:8,mines:10} , medium: {height:16,width:16,mines:40} , hard: {height:16,width:30,mines:99}};
-var reminingMines=dificulty.medium.mines;;
+var reminingMines=dificulty.medium.mines;
+var idBoxSelected;
 
 function MinesweeperGame(props) {
   
@@ -79,26 +80,22 @@ function MinesweeperGame(props) {
 
   function flagControl(e , i , j) {
     e.preventDefault();
+    idBoxSelected = "#"+i+"-"+j;
     if (finished) return;
-    if ($("#"+i+"-"+j).hasClass("hiddenBox")){
-      if ($("#"+i+"-"+j).hasClass("flag")){
-        $("#"+i+"-"+j).removeClass("flag");
-        $("#"+i+"-"+j).addClass("question");
+    if ($(idBoxSelected).hasClass("hiddenBox")){
+      if ($(idBoxSelected).hasClass("flag")){
+        $(idBoxSelected).removeClass("flag");
+        $(idBoxSelected).addClass("question");
         reminingMines++;
       }else{
-        if ($("#"+i+"-"+j).hasClass("question")){
-          $("#"+i+"-"+j).removeClass("question");
+        if ($(idBoxSelected).hasClass("question")){
+          $(idBoxSelected).removeClass("question");
         } else {
-          $("#"+i+"-"+j).addClass("flag");
+          $(idBoxSelected).addClass("flag");
           reminingMines--;
         }
       }
       $("#reminingMines").text("Mines: " + reminingMines);
-    } else {
-      if ($("#"+i+"-"+j).hasClass("question")){
-        $("#"+i+"-"+j).removeClass("question");
-        alert("Entrs")
-      } 
     }
   }
 
@@ -140,17 +137,20 @@ function MinesweeperGame(props) {
   }
 
   function resetGame() {
+    
     for (let i=0 ; i<height ; i++){
       for (let j=0 ; j<width ; j++){
-        $("#"+i+"-"+j).addClass("hiddenBox");
-        $("#"+i+"-"+j).removeClass("flag bomb mistake question");
+        idBoxSelected = "#"+i+"-"+j;
+        $(idBoxSelected).addClass("hiddenBox");
+        $(idBoxSelected).removeClass("flag bomb mistake question");
       }
     }
   }
 
   function selectedBox( i , j ) {
+    idBoxSelected = "#"+i+"-"+j;
     if(finished) return;
-    if ($("#"+i+"-"+j).hasClass("flag")) return;
+    if ($(idBoxSelected).hasClass("flag")) return;
     if(isNew){
       isNew=false;
       ponerMinas(mines , i , j);
@@ -158,15 +158,15 @@ function MinesweeperGame(props) {
       selectedBox( i , j );
     }
     else {
-      if ($("#"+i+"-"+j).hasClass("hiddenBox")){
+      if ($(idBoxSelected).hasClass("hiddenBox")){
         reminingBoxs--;
         if(minesweeper[i][j] == "-1") {
-          $("#"+i+"-"+j).addClass("bomb");
+          $(idBoxSelected).addClass("bomb");
           finish(false);
           return;
         }
-        $("#"+i+"-"+j).text(minesweeper[i][j]);
-        $("#"+i+"-"+j).removeClass("hiddenBox question");
+        $(idBoxSelected).text(minesweeper[i][j]);
+        $(idBoxSelected).removeClass("hiddenBox question");
         if(minesweeper[i][j] == "") {
           if(0<=i-1) selectedBox(i-1 , j);
           if(0<=i-1 && 0<=j-1) selectedBox(i-1 , j-1);
@@ -198,13 +198,14 @@ function MinesweeperGame(props) {
   function showMines() {
     for (let i=0 ; i<height ; i++){
       for (let j=0 ; j<width ; j++){
-        if(minesweeper[i][j] == "-1" && $("#"+i+"-"+j).hasClass("hiddenBox") && !$("#"+i+"-"+j).hasClass("flag")){
-          $("#"+i+"-"+j).removeClass("hiddenBox");
-          $("#"+i+"-"+j).addClass("bomb");
+        idBoxSelected = "#"+i+"-"+j;
+        if(minesweeper[i][j] == "-1" && $(idBoxSelected).hasClass("hiddenBox") && !$(idBoxSelected).hasClass("flag")){
+          $(idBoxSelected).removeClass("hiddenBox");
+          $(idBoxSelected).addClass("bomb");
         }
-        if(minesweeper[i][j] != "-1" && $("#"+i+"-"+j).hasClass("flag")){
-          $("#"+i+"-"+j).removeClass("hiddenBox");
-          $("#"+i+"-"+j).addClass("mistake");
+        if(minesweeper[i][j] != "-1" && $(idBoxSelected).hasClass("flag")){
+          $(idBoxSelected).removeClass("hiddenBox");
+          $(idBoxSelected).addClass("mistake");
         }
       }
     }
