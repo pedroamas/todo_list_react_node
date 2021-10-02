@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Chess from "./pages/Chess"
 import Minesweeper from "./pages/Minesweeper"
+import Snake from "./pages/Snake"
 import Player from "./pages/Player"
 import Streaming from "./pages/Streaming"
 import Header from "./components/Header"
@@ -21,6 +22,7 @@ function App(props) {
             <Route exact path="/about" component={About} />
             <Route exact path="/streaming" component={Streaming} />
             <Route exact path="/minesweeper" component={Minesweeper} />
+            <Route exact path="/snake" component={Snake} />
             <Route path="/player/:id" component={Player} />
           </Switch>
           <div className="push"></div>

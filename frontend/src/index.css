@@ -111,3 +111,66 @@ video {
     background-color: #28a745;
     color: white;
 }
+
+.snakeBox {
+    width: 35px;
+    height: 35px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    -moz-user-select: none; 
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
+
+.snakeImg {
+    width: 35px;
+    height: 35px;
+}
+
+.right {
+    transform: rotate(0deg);
+}
+
+.down {
+    transform: rotate(90deg);
+}
+
+.left {
+    transform: rotate(180deg);
+}
+
+.up {
+    transform: rotate(-90deg);
+}
+.right-down {
+    transform: rotate(0deg);
+}
+.down-left {
+    transform: rotate(90deg);
+}
+.left-up {
+    transform: rotate(180deg);
+}
+.up-right {
+    transform: rotate(-90deg);
+}
+
+.down-right {
+    transform: rotate(0deg);
+}
+.left-down {
+    transform: rotate(90deg);
+}
+.up-left {
+    transform: rotate(180deg);
+}
+.right-up {
+    transform: rotate(-90deg);
+}
+
+.tableSnake {
+    border-style: solid;
+    border-color: black;
+}

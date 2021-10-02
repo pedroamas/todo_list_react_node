@@ -125,6 +125,9 @@ function MinesweeperGame(props) {
   }
 
   function newGameClick() {
+    if (isNaN(heightRef.current.value)) return;
+    if (isNaN(widthRef.current.value)) return;
+    if (isNaN(minesRef.current.value)) return;
     finished=false;
     isNew=true;
     newGame();
@@ -225,12 +228,15 @@ function MinesweeperGame(props) {
 
   function ponerMinas( minas , iSelected = -1 , jSelected = -1){
     var i=0;
-    while( i<minas) {
+    var minesOverflow = 0;
+    while( i<minas && minesOverflow<150) {
       var mine_i = Math.floor(Math.random()*height);
       var mine_j = Math.floor(Math.random()*width);
-      if ((iSelected!=mine_i && jSelected!=mine_j) && (minesweeper[mine_i][mine_j] != -1)) {
+      minesOverflow++;
+      if ((iSelected!=mine_i || jSelected!=mine_j) && (minesweeper[mine_i][mine_j] != -1)) {
         minesweeper[mine_i][mine_j] = -1;
         i++;
+        minesOverflow = 0;
       }
     }
   }
