@@ -16,6 +16,7 @@ var fruit;
 var eatenFruits=0;
 const HEIGHT = 10;
 const WIDTH = 10;
+var lastDirection;
 
 function SnakeGame(props) {
     var matrix = new Array(HEIGHT); 
@@ -32,20 +33,23 @@ function SnakeGame(props) {
     
 
     $("body").on("keydown", function(e) {
-    	if(e.keyCode == 37 && direction!=RIGHT) { // left
+    	if(e.keyCode == 37 && gameState==JUGANDO && lastDirection!=RIGHT) { // left
             direction = LEFT;
           }
           else if(e.keyCode == 39 && direction!=LEFT) { // right
-            direction = RIGHT;
+            
             if(gameState==NUEVO) {
                 gameState=JUGANDO;
+                direction = RIGHT;
                 playGame();
+            }else if (gameState==JUGANDO && lastDirection!=LEFT) {
+                direction = RIGHT;
             }
           }
-          else if(e.keyCode == 38 && direction!=DOWN) { // up
+          else if(e.keyCode == 38 && gameState==JUGANDO && lastDirection!=DOWN) { // up
             direction = UP;
           }
-          else if(e.keyCode == 40 && direction!=UP) { // down
+          else if(e.keyCode == 40 && gameState==JUGANDO && lastDirection!=UP) { // down
             direction = DOWN;
           }
 });
@@ -120,6 +124,7 @@ function SnakeGame(props) {
         calculateNewFruit();
         
         direction=null;
+        lastDirection=null;
         $("#eatenFruits").text("Fruits: " + eatenFruits);
     }
     function playGame() {
@@ -140,7 +145,7 @@ function SnakeGame(props) {
 
       switch(direction){
         case DOWN:      headBox = snake[snake.length - 1];
-                        if( !gameOver(headBox.i + 1 , headBox.j) && headBox.i + 1 < HEIGHT){
+                        if( !gameOver(headBox.i + 1 , headBox.j) && headBox.i + 1 < HEIGHT ){
                             matrix[headBox.i][headBox.j].ocupado = true;
                             idBox = "#"+(headBox.i +1) +"-"+headBox.j;
                             snake.push({i: headBox.i + 1 , j: headBox.j , orientation: DOWN});
@@ -148,7 +153,8 @@ function SnakeGame(props) {
                                 tailControl();
                             else addTailImg();
                             $(idBox).prepend($('<img>',{src: "images/snakeHead.png", class: "snakeImg down"}));
-                            transformateHeadToBody(direction) 
+                            transformateHeadToBody(direction);
+                            lastDirection=direction;
                         }
                         break;
         case RIGHT:     headBox = snake[snake.length - 1];
@@ -160,7 +166,8 @@ function SnakeGame(props) {
                                 tailControl();
                             else addTailImg();
                             $(idBox).prepend($('<img>',{src: "images/snakeHead.png", class: "snakeImg right"}));
-                            transformateHeadToBody(direction) 
+                            transformateHeadToBody(direction);
+                            lastDirection=direction;
                         }
                         break;
       
@@ -174,7 +181,8 @@ function SnakeGame(props) {
                                 tailControl();
                             else addTailImg();
                             $(idBox).prepend($('<img>',{src: "images/snakeHead.png", class: "snakeImg up"}));
-                            transformateHeadToBody(direction) 
+                            transformateHeadToBody(direction);
+                            lastDirection=direction; 
                         }
                         break;
         case LEFT:      headBox = snake[snake.length - 1];
@@ -187,7 +195,8 @@ function SnakeGame(props) {
                                 tailControl();
                             else addTailImg();
                             $(idBox).prepend($('<img>',{src: "images/snakeHead.png", class: "snakeImg left"}));
-                            transformateHeadToBody(direction) 
+                            transformateHeadToBody(direction);
+                            lastDirection=direction; 
                         }
                         break;
       }
